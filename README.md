@@ -1,6 +1,15 @@
-# Makers BnB
+# MAKER HOUSE A HOME
 
-This is a web application that allows users to list spaces they have available, and to hire spaces for the night.
+This is a web application that allows users to list spaces they have available, and to hire spaces for the night, so they can have their dream get-away they fully deserve.
+
+## Tech Stack
+For this app we will be using the following tech stack:
+- Ruby
+- Sinatra 
+- PostgreSQL
+- Capybara (Feature testing)
+- RSPEC (Test framework)
+- HTML/CSS (Web-rendering)
 
 ## User Stories:
 
