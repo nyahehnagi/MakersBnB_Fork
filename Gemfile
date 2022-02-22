@@ -8,6 +8,7 @@ gem 'pg'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'webrick'
+gem 'sequel'
 
 group :test do
   gem 'capybara'
