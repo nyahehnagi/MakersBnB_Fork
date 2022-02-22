@@ -9,3 +9,5 @@ task :test_database_setup do
   DB.run("TRUNCATE customers RESTART IDENTITY CASCADE")
 
 end
+
+

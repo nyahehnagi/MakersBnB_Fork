@@ -10,6 +10,7 @@ gem 'sinatra-contrib'
 gem 'webrick'
 gem 'sequel'
 gem 'rake'
+gem 'dotenv'
 
 group :test do
   gem 'capybara'
