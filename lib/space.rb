@@ -1,3 +1,6 @@
 class Space < Sequel::Model
- # Add validation
+  # convert the decimal to float?
 end
+
+
+  

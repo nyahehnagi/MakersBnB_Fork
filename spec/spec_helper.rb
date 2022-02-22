@@ -10,6 +10,8 @@ require 'capybara/rspec'
 
 require_relative '../app'
 
+
+
 Capybara.app = Mahah
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -36,7 +38,9 @@ RSpec.configure do |config|
 
   config.profile_examples = 10
 
-  config.order = :random
+  # config.order = :random
 
-  Kernel.srand config.seed
+  # Kernel.srand config.seed
+
+  # config.filter_gems_from_backtrace 
 end
