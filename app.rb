@@ -12,7 +12,7 @@ class Mahah < Sinatra::Base
   end
 
   get '/' do
-    'OK LESSSS GOOOO'
+    erb :"spaces/index"
   end
 
   get '/spaces/new' do
@@ -20,8 +20,23 @@ class Mahah < Sinatra::Base
   end
 
   post '/spaces' do
-    Space.add(name: params[:name], description: params[:description], price: params[price:])
-    redirect to "/"
+    # p params
+    Space.create(name: params[:name], description: params[:description], price: params[:price], owner_customer_id: params[:owner_customer_id])
+    
+    redirect to "/spaces"
+  end
+
+  get '/spaces' do
+   
+    @spaces = Space.all
+    @spaces.each do |space|
+      p "name : #{space.name}"
+      p "name : #{space.price.to_f}"
+      
+    end
+    
+    erb :"spaces/index"
+    
   end
 
   
