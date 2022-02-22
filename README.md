@@ -10,6 +10,7 @@ For this app we will be using the following tech stack:
 - Capybara (Feature testing)
 - RSPEC (Test framework)
 - HTML/CSS (Web-rendering)
+- Sequel for Object Relational Mapping
 
 ## User Stories:
 
