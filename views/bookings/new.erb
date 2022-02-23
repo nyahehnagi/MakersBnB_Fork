@@ -1,4 +1,31 @@
-<form action='/bookings' method='get'>
-<input type='submit' value='Make booking'/>
+Available Properties:
 
+<ul>
+<% @spaces.each do |space| %>
+  <li>
+    <%= space.name %>
+    <%= space.description %>
+    <%= space.price.to_f %>
+    <%= space.owner_customer_id %>
+  </li>
+    <% end %>
+</ul>
+
+Choose from the list above which property you would like:
+
+<form action='/bookings' method='post'>
+<label for='owner'>Owner:</label>  
+<select name='owner' id='owner'>
+  <option value="dash">Dash</option>
+  <option value="haroon">Haroon</option>
+  <option value="emma">Emma</option>
+</select>
+
+<label for='property'>Property Type:</label>  
+<select name='property' id='property'>
+  <option value="small red house">Small Red House</option>
+  <option value="old fashioned house">Old Fashioned House</option>
+</select>
+
+<input type='submit' value='Make booking'/>
 </form>
