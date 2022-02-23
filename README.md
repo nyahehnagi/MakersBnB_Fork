@@ -96,6 +96,19 @@ You may get database permission issues, if so please look [here](https://tablepl
 
 ## User Stories:
 
+**User Sign up and authentication**
+As a user
+So I can use the MakersBnB service
+I want to sign up
+
+As a user
+so I can use the Makerbnb service
+I want to log in
+
+As a user
+so I can leave the Makerbnb service
+I want to Sign off
+
 **Any signed-up user can list a new space.**
 ~~~~
 As an Owner
