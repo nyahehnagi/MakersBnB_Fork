@@ -1,1 +1,7 @@
 Maker House a Home
+
+<% if @customer %>
+  <h1>Welcome, <%= @customer.name %></h1>
+<% else %>
+  <%=erb :"sessions/new"%>
+<% end %>
