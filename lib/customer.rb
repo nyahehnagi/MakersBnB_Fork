@@ -8,7 +8,10 @@ class Customer < Sequel::Model
   self.raise_on_save_failure = false
 
   def validate
+    # This enables some inbuilt validation - it is used for the email validation below
     Sequel::Model.plugin :validation_helpers
+    # super ensures that Sequel::Model validations are enforced as we are overriding the validate method
+    # See here for more info https://sequel.jeremyevans.net/rdoc/files/doc/validations_rdoc.html
     super
     errors.add(:name, 'cannot be empty') if !name || name.empty?
     errors.add(:email, 'cannot be empty') if !email || email.empty?
@@ -20,6 +23,7 @@ class Customer < Sequel::Model
     result = DB[:customers].where(email: email)
 
     return unless result.any?
+    # This checks to see if the decrypted password is equal to the password the customer entered
     return unless BCrypt::Password.new(result.first[:password]) == password
 
     Customer.find(result.first[:customer_id]).first
