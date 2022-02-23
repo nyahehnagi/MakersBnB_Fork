@@ -26,7 +26,9 @@ class Customer < Sequel::Model
    
   end
 
-  # Need to introduce Model Hooks to override .create to add encryption
+  # This gets called just before the data is saved to the database - see Sequel docs for more info
+  # on how hooks can be used. 
+  # https://github.com/jeremyevans/sequel/blob/master/doc/model_hooks.rdoc
   def before_create
     encrypted_password = BCrypt::Password.create(password)
     self.password = encrypted_password
