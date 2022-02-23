@@ -1,6 +1,6 @@
 # MAKER HOUSE A HOME
 
-This is a web application that allows users to list spaces they have available, and to hire spaces for the night, so they can have their dream get-away they fully deserve.
+This is a web application that allows users to list spaces they have available, and to hire spaces for the night, so they can have the dream get-away they fully deserve.
 
 ## Tech Stack
 For this app we will be using the following tech stack:
@@ -10,6 +10,85 @@ For this app we will be using the following tech stack:
 - Capybara (Feature testing)
 - RSPEC (Test framework)
 - HTML/CSS (Web-rendering)
+- Sequel for Object Relational Mapping
+
+## Installation
+----------------------
+Install gems with [bundler](https://bundler.io/ "bundler") 
+~~~~
+$> bundle install 
+~~~~
+To install code from the latest source
+~~~~
+git@github.com:nyahehnagi/makers_bnb.git
+~~~~
+
+## Testing
+-----------------------
+To run rspec tests
+~~~~
+$> rspec
+~~~~
+
+
+## To run the sinatra webserver locally
+-----------------------
+To run a locally hosted server of the site
+~~~~
+$> rackup
+~~~~
+
+Navigate to http://localhost:9292/
+
+## Environment configuration
+
+This app uses environmment variables for database and configuration. Create a `.env` file in the app root
+
+This file needs to contain the following:
+~~~~
+TEST_DB_USER=<your username>
+TEST_DB_PASSWORD=<your password>
+TEST_HOST=<localhost>
+TEST_PORT=<port of database>
+
+DEV_DB_USER=<your username>
+DEV_DB_PASSWORD=<your password>
+DEV_HOST=<localhost>
+DEV_PORT=<port of database>
+~~~~
+
+a typical example would look like this
+~~~~
+TEST_DB_USER=bromley
+TEST_DB_PASSWORD=pa55w0rd
+TEST_HOST=localhost
+TEST_PORT=5432
+~~~~
+
+## Database Setup
+----------------------
+Install [postgresql](https://www.postgresql.org/download/ "postgresql")  according to your operating system
+
+Ensure you have set up your user database as part of the posgresql install
+
+Once within psql use the command line to complete the following steps (note, the .sql files are located within db/migrations folder):
+
+~~~~
+00_create_database.sql
+
+\c makersbnb
+01_create_table_customer.sql
+02_create_table_space.sql
+
+\c makersbnb_test
+01_create_table_customer.sql
+02_create_table_space.sql
+~~~~
+
+
+You may get database permission issues, if so please look [here](https://tableplus.com/blog/2018/04/postgresql-how-to-grant-access-to-users.html "here") for more information on how to grant permissions 
+
+----------------------
 
 ## User Stories:
 
