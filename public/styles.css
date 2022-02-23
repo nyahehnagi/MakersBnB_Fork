@@ -1,0 +1,12 @@
+body {
+  text-align: center;
+  background: rgb(80,101,180);
+  background: linear-gradient(90deg, rgba(80,101,180,1) 19%, rgba(70,194,172,1) 100%);
+}
+
+h1 {
+  color: black;
+  text-align: center;
+  font-size: 55px;
+  font-family: fantasy;
+}
