@@ -13,3 +13,9 @@
   </li>
   <% end %>
 </ul>
+
+<% if @customer %>
+  <form action="/sessions/delete" method="post">
+    <input type="submit" value="Sign out" />
+  </form>
+<% end %>

@@ -17,9 +17,7 @@ class SessionController < Sinatra::Base
     else
       flash[:notice] = 'Please check your email or password.'
       redirect '/sessions/new'
-
     end
-    
   end
 
   post '/sessions/delete' do

@@ -14,33 +14,31 @@ describe Customer do
       expect(customer.email).to eq persisted_customer.email
     end
 
-    xit 'hashes the password using BCrypt' do
-      expect(BCrypt::Password).to receive(:create).with('password123')
-
-      # need to think how to add BCrypt to the create function.. We can use Hooks 
+    it 'hashes the password using BCrypt' do
+      customer = Customer.create(email: 'test@example.com', password: 'password123', name: 'Test User')
+      expect(BCrypt::Password.new(customer.password)).to eq  'password123'
+      
     end
 
-    # Re-think below tests as I want to return nil and not catch errors
-    # Again, override the .create or similar..
-    xit 'does not allow duplicate email addresses' do
-      #customer = Customer.create(email: 'test@example.com', password: 'password123', name: 'Test User')
-      #customer = Customer.create(email: 'test@example.com', password: 'password123', name: 'Another Name')
+    it 'does not allow duplicate email addresses' do
+      customer = Customer.create(email: 'test@example.com', password: 'password123', name: 'Test User')
+      customer = Customer.create(email: 'test@example.com', password: 'password123', name: 'Another Name')
 
-      #expect(customer).to be_nil
+      expect(customer).to be_nil
     end
 
 
     it 'does not allow an empty email address' do
-      expect{ Customer.create(email: '', password: 'password123', name: 'Another Name') }.to raise_error("email cannot be empty")
+      expect(Customer.create(email: '', password: 'password123', name: 'Another Name')).to be_nil
     end
 
     it 'does not allow an empty password' do
-      expect{ Customer.create(email: 'test@example.com', password: '', name: 'Test Name') }.to raise_error("password cannot be empty")
+      expect(Customer.create(email: 'test@example.com', password: '', name: 'Test Name')).to be_nil
     end
 
 
     it 'does not allow an empty name' do
-      expect{ Customer.create(email: 'test@example.com', password: 'password123', name: '') }.to raise_error("name cannot be empty")
+      expect(Customer.create(email: 'test@example.com', password: 'password123', name: '')).to be_nil
     end
 
   end
@@ -56,11 +54,11 @@ describe Customer do
       expect(authenticated_cust.customer_id).to eq @customer.customer_id
     end
 
-    xit 'returns nil given an incorrect email address' do
+    it 'returns nil given an incorrect email address' do
       expect(Customer.authenticate(email: 'wrongemail@mail.com', password: 'password123')).to be_nil
     end
 
-    xit 'returns nil given an incorrect password' do
+    it 'returns nil given an incorrect password' do
       expect(Customer.authenticate(email: 'test@example.com', password: 'wrongpassword')).to be_nil
     end
 
