@@ -4,19 +4,19 @@
 <h1>Maker House a Home</h1>
 </head>
 <body>
-<h1> Maker House a Home </h1>
+
 </br>
-<ul>
+
 <% @spaces.each do |space| %>
-  <li>
-    <%= space.name %>
+  
+  <p>  <%= space.name %>
     <%= space.description %>
     <%= space.price.to_f %>
-    <%= space.owner_customer_id %>
-  </li>
+    <%= space.owner_customer_id %> </p>
+  
   <% end %>
-</ul>
-
+</br>
+</br>
 <form action='/spaces/new' method='get'>
   <input type=submit value='Add a Space'/>
 </form>
