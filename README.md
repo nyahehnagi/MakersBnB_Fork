@@ -79,10 +79,12 @@ Once within psql use the command line to complete the following steps (note, the
 \c makersbnb
 01_create_table_customer.sql
 02_create_table_space.sql
+03_create_table_bookings.sql
 
 \c makersbnb_test
 01_create_table_customer.sql
 02_create_table_space.sql
+03_create_table_bookings.sql
 ~~~~
 
 

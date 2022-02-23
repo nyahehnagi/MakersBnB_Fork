@@ -12,7 +12,7 @@ class Mahah < Sinatra::Base
   end
 
   get '/' do
-    erb :"spaces/index"
+    erb :"/index"
   end
 
   get '/spaces/new' do
@@ -27,16 +27,20 @@ class Mahah < Sinatra::Base
   end
 
   get '/spaces' do
-   
     @spaces = Space.all
-    @spaces.each do |space|
-      p "name : #{space.name}"
-      p "name : #{space.price.to_f}"
-      
-    end
     
     erb :"spaces/index"
     
+  end
+
+  get '/bookings/new' do
+
+    erb :"bookings/new"
+
+  end
+
+  get '/bookings' do
+    erb :"bookings/index"
   end
 
   
