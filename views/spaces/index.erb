@@ -1,17 +1,30 @@
+<<<<<<< HEAD
 
 <% if @customer %>
   <h1>Welcome, <%= @customer.name %></h1>
 <% end %>
 
 <ul>
+=======
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="/styles.css">
+<h1>Maker House a Home</h1>
+</head>
+<body>
+
+</br>
+
+>>>>>>> 61c5715456c8127a07e9564b7ad9c7f30f0043cf
 <% @spaces.each do |space| %>
-  <li>
-    <%= space.name %>
+  
+  <p>  <%= space.name %>
     <%= space.description %>
     <%= space.price.to_f %>
-    <%= space.owner_customer_id %>
-  </li>
+    <%= space.owner_customer_id %> </p>
+  
   <% end %>
+<<<<<<< HEAD
 </ul>
 
 <% if @customer %>
@@ -19,3 +32,11 @@
     <input type="submit" value="Sign out" />
   </form>
 <% end %>
+=======
+</br>
+</br>
+<form action='/spaces/new' method='get'>
+  <input type=submit value='Add a Space'/>
+</form>
+</body>
+>>>>>>> 61c5715456c8127a07e9564b7ad9c7f30f0043cf
