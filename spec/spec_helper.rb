@@ -10,6 +10,8 @@ require 'capybara/rspec'
 require 'rake'
 require_relative '../app'
 
+require_relative './features/web_helpers'
+
 Capybara.app = Mahah
 
 # Load the Rakefile
@@ -35,17 +37,11 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  config.shared_context_metadata_behavior = :apply_to_host_groups
+  # config.shared_context_metadata_behavior = :apply_to_host_groups
 
-  config.warnings = true
+  # config.warnings = true
 
-  config.default_formatter = 'doc' if config.files_to_run.one?
+  # config.default_formatter = 'doc' if config.files_to_run.one?
 
-  config.profile_examples = 10
-
-  # config.order = :random
-
-  # Kernel.srand config.seed
-
-  # config.filter_gems_from_backtrace
+  # config.profile_examples = 10
 end

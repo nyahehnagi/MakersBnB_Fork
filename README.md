@@ -80,11 +80,13 @@ Once within psql use the command line to complete the following steps (note, the
 01_create_table_customer.sql
 02_create_table_space.sql
 03_create_table_bookings.sql
+04_alter_table_customers.sql
 
 \c makersbnb_test
 01_create_table_customer.sql
 02_create_table_space.sql
 03_create_table_bookings.sql
+04_alter_table_customers.sql
 ~~~~
 
 
@@ -93,6 +95,19 @@ You may get database permission issues, if so please look [here](https://tablepl
 ----------------------
 
 ## User Stories:
+
+**User Sign up and authentication**
+As a user
+So I can use the MakersBnB service
+I want to sign up
+
+As a user
+so I can use the Makerbnb service
+I want to log in
+
+As a user
+so I can leave the Makerbnb service
+I want to Sign off
 
 **Any signed-up user can list a new space.**
 ~~~~

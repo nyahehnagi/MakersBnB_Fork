@@ -3,7 +3,7 @@
 feature 'add space' do
   scenario 'owners can add spaces' do
     DB.run('TRUNCATE customers RESTART IDENTITY CASCADE')
-    DB.run("INSERT INTO customers (name) VALUES ('test')")
+    DB.run("INSERT INTO customers (name, email, password) VALUES ('test','test@example.com' ,'password')")
 
     visit('spaces/new')
     fill_in('name', with: 'Big House')

@@ -1,0 +1,16 @@
+<h2>
+  <%= flash[:notice] %>
+</h2>
+<h2>New User Registration</h2><br>
+
+<div >
+  <form action="/customers" method="post">
+    <table id="registration_border">
+      <tr><td>Email:</td><td style="text-align:left"><input type="email" name="email"  maxlength="60" /></td></tr>
+      <tr><td>Name:</td><td style="text-align:left"><input type="text" name="name" maxlength="60"/></td></tr>
+      <tr><td>Password:</td><td style="text-align:left"><input type="password" name="password" maxlength="30" /></td></tr> 
+    </table>
+    <br>
+    <input type="submit" value="Register" />
+  </form>
+</div>

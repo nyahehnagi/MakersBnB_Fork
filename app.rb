@@ -2,17 +2,31 @@
 
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/flash'
+
 require './database_setup'
 require './lib/space'
+require './lib/customer'
+
+require_relative './controllers/customer_controller'
+require_relative './controllers/session_controller'
 require './lib/booking'
 
 # Maker House a Home
 class Mahah < Sinatra::Base
+  use CustomerController
+  use SessionController
+
   configure :development do
     register Sinatra::Reloader
   end
 
+  register Sinatra::Flash
+
+  enable :sessions
+
   get '/' do
+    @customer = Customer.find(customer_id: session[:customer_id])
     erb :"/index"
   end
 
@@ -28,12 +42,20 @@ class Mahah < Sinatra::Base
   end
 
   get '/spaces' do
+    @customer = Customer.find(customer_id: session[:customer_id])
     @spaces = Space.all
+<<<<<<< HEAD
+
+=======
+>>>>>>> 61c5715456c8127a07e9564b7ad9c7f30f0043cf
     erb :"spaces/index"
   end
 
   get '/bookings/new' do
+<<<<<<< HEAD
+=======
     @spaces = Space.all
+>>>>>>> 61c5715456c8127a07e9564b7ad9c7f30f0043cf
     erb :"bookings/new"
   end
 
