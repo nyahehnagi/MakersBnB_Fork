@@ -44,18 +44,12 @@ class Mahah < Sinatra::Base
   get '/spaces' do
     @customer = Customer.find(customer_id: session[:customer_id])
     @spaces = Space.all
-<<<<<<< HEAD
 
-=======
->>>>>>> 61c5715456c8127a07e9564b7ad9c7f30f0043cf
     erb :"spaces/index"
   end
 
   get '/bookings/new' do
-<<<<<<< HEAD
-=======
     @spaces = Space.all
->>>>>>> 61c5715456c8127a07e9564b7ad9c7f30f0043cf
     erb :"bookings/new"
   end
 
