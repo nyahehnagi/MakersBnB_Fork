@@ -6,7 +6,7 @@
   
 Available Properties:
 
-<ul>
+<ol>
 <% @spaces.each do |space| %>
   <li>
     <%= space.name %>
@@ -15,22 +15,18 @@ Available Properties:
     <%= space.owner_customer_id %>
   </li>
     <% end %>
-</ul>
+</ol>
 
 Choose from the list above which property you would like:
   
 <form action='/bookings' method='post'>
-<label for='owner'>Owner:</label>  
-<select name='owner' id='owner'>
-  <option value="dash">Dash</option>
-  <option value="haroon">Haroon</option>
-  <option value="emma">Emma</option>
-</select>
-
-<label for='property'>Property Type:</label>  
+<label for='property'>Property:</label>  
 <select name='property' id='property'>
-  <option value="small red house">Small Red House</option>
-  <option value="old fashioned house">Old Fashioned House</option>
+  <% @spaces.each do |space| %>
+ 
+  <option value="property_name"> <%= space.name %>'s <%= space.description %> for £<%=space.price.to_f %>   </option>
+  
+  <% end %>
 </select>
 
 <input type='submit' value='Make booking'/>

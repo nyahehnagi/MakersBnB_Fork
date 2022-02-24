@@ -53,14 +53,12 @@ class Mahah < Sinatra::Base
     erb :"bookings/new"
   end
 
-  # get '/bookings' do
-  #   erb :"bookings/index"
-  # end
+  get '/bookings' do
+    erb :"bookings/index"
+  end
 
   post '/bookings' do
-    @owner = params[:owner]
-    @property = params[:property]
-    erb :"bookings/index"
+    redirect "/bookings"
   end
 
   run! if app_file == $PROGRAM_NAME
