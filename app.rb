@@ -59,7 +59,7 @@ class Mahah < Sinatra::Base
 
   post '/bookings' do
     @owner = params[:owner]
-    @property = params[:property] 
+    @property = params[:property]
     erb :"bookings/index"
   end
 
