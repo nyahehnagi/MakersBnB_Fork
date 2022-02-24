@@ -4,30 +4,18 @@
 <h1>Maker House a Home</h1>
 </head>
   
-Available Properties:
-
+<p>Available Properties:</p>
 <ol>
 <% @spaces.each do |space| %>
-  <li>
-    <%= space.name %>
-    <%= space.description %>
-    <%= space.price.to_f %>
-    <%= space.owner_customer_id %>
-  </li>
+    <p><%= space.space_id %>. <%= space.name %>: £<%= space.price.to_f %></p>
     <% end %>
 </ol>
 
-Choose from the list above which property you would like:
-  
+<p>Choose the number from the list above for the property you would like:</p>
+
 <form action='/bookings' method='post'>
-<label for='property'>Property:</label>  
-<select name='property' id='property'>
-  <% @spaces.each do |space| %>
- 
-  <option value="property_name"> <%= space.name %>'s <%= space.description %> for £<%=space.price.to_f %>   </option>
-  
-  <% end %>
-</select>
+Property number:
+<input type='text' name='space_id'/>
 
 <input type='submit' value='Make booking'/>
 </form>
