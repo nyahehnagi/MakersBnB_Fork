@@ -10,3 +10,6 @@ feature 'View a booking' do
     expect(page).to have_content 'You have booked this property for 1 night'
   end
 end
+
+# So I can have a great night out
+# I would like to request to hire the space for one night

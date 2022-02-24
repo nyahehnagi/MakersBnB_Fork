@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require './database_setup'
 require './lib/space'
+require './lib/booking'
 
 # Maker House a Home
 class Mahah < Sinatra::Base
@@ -20,7 +21,6 @@ class Mahah < Sinatra::Base
   end
 
   post '/spaces' do
-    # p params
     Space.create(name: params[:name], description: params[:description], price: params[:price],
                  owner_customer_id: params[:owner_customer_id])
 
@@ -29,15 +29,21 @@ class Mahah < Sinatra::Base
 
   get '/spaces' do
     @spaces = Space.all
-
     erb :"spaces/index"
   end
 
   get '/bookings/new' do
+    @spaces = Space.all
     erb :"bookings/new"
   end
 
-  get '/bookings' do
+  # get '/bookings' do
+  #   erb :"bookings/index"
+  # end
+
+  post '/bookings' do
+    @owner = params[:owner]
+    @property = params[:property] 
     erb :"bookings/index"
   end
 
