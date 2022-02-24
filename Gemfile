@@ -4,13 +4,13 @@ source 'https://rubygems.org'
 
 ruby '3.0.2'
 
+gem 'dotenv'
 gem 'pg'
+gem 'rake'
+gem 'sequel'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'webrick'
-gem 'sequel'
-gem 'rake'
-gem 'dotenv'
 
 group :test do
   gem 'capybara'

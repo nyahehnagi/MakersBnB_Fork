@@ -10,8 +10,6 @@ require 'capybara/rspec'
 require 'rake'
 require_relative '../app'
 
-
-
 Capybara.app = Mahah
 
 # Load the Rakefile
@@ -25,7 +23,6 @@ SimpleCov.start
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 RSpec.configure do |config|
-
   config.before(:each) do
     Rake::Task['test_database_setup'].execute
   end
@@ -50,5 +47,5 @@ RSpec.configure do |config|
 
   # Kernel.srand config.seed
 
-  # config.filter_gems_from_backtrace 
+  # config.filter_gems_from_backtrace
 end

@@ -21,8 +21,10 @@ class Mahah < Sinatra::Base
   end
 
   post '/spaces' do
-    Space.create(name: params[:name], description: params[:description], price: params[:price], owner_customer_id: params[:owner_customer_id])
-    redirect to "/spaces"
+    Space.create(name: params[:name], description: params[:description], price: params[:price],
+                 owner_customer_id: params[:owner_customer_id])
+
+    redirect to '/spaces'
   end
 
   get '/spaces' do
@@ -44,6 +46,6 @@ class Mahah < Sinatra::Base
     @property = params[:property] 
     erb :"bookings/index"
   end
-  
+
   run! if app_file == $PROGRAM_NAME
 end
