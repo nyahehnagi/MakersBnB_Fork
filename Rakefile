@@ -1,13 +1,12 @@
+# frozen_string_literal: true
+
 require 'sequel'
 require 'dotenv/load'
 
-desc "Resets the test database"
+desc 'Resets the test database'
 task :test_database_setup do
-  p "Resetting database..."
+  p 'Resetting database...'
 
   # Clear the database
-  DB.run("TRUNCATE customers RESTART IDENTITY CASCADE")
-
+  DB.run('TRUNCATE customers RESTART IDENTITY CASCADE')
 end
-
-

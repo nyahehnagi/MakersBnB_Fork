@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 require 'bcrypt'
 
-class Customer < Sequel::Model 
-
+class Customer < Sequel::Model
   # This is to return nil when validation has failed. This is for simplicity
   # If this was true we could raise the errors back out and in the error object of this
-  # class and determine what to do at a more granular level. 
+  # class and determine what to do at a more granular level.
   self.raise_on_save_failure = false
 
   def validate
@@ -27,11 +28,10 @@ class Customer < Sequel::Model
     return unless BCrypt::Password.new(result.first[:password]) == password
 
     Customer.find(result.first[:customer_id]).first
-   
   end
 
   # This gets called just before the data is saved to the database - see Sequel docs for more info
-  # on how hooks can be used. 
+  # on how hooks can be used.
   # https://github.com/jeremyevans/sequel/blob/master/doc/model_hooks.rdoc
   def before_create
     encrypted_password = BCrypt::Password.create(password)
@@ -39,4 +39,3 @@ class Customer < Sequel::Model
     super
   end
 end
-

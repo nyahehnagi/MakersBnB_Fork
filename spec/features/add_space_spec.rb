@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 feature 'add space' do
   scenario 'owners can add spaces' do
-
-    DB.run("TRUNCATE customers RESTART IDENTITY CASCADE")
+    DB.run('TRUNCATE customers RESTART IDENTITY CASCADE')
     DB.run("INSERT INTO customers (name, email, password) VALUES ('test','test@example.com' ,'password')")
-    
+
     visit('spaces/new')
     fill_in('name', with: 'Big House')
     fill_in('description', with: 'Really big house')
@@ -14,6 +15,5 @@ feature 'add space' do
     expect(page).to have_content 'Really big house'
     expect(page).to have_content '10.5'
     expect(page).to have_content '1'
-
   end
 end

@@ -1,11 +1,12 @@
+# frozen_string_literal: true
+
 require_relative '../lib/customer'
 
 describe Customer do
-
   describe 'saving to the database' do
     it 'creates a new user' do
       customer = Customer.create(email: 'test@example.com', password: 'password123', name: 'Test User')
-  
+
       persisted_customer = Customer.find(customer_id: customer.customer_id)
 
       expect(customer).to be_a Customer
@@ -16,8 +17,7 @@ describe Customer do
 
     it 'hashes the password using BCrypt' do
       customer = Customer.create(email: 'test@example.com', password: 'password123', name: 'Test User')
-      expect(BCrypt::Password.new(customer.password)).to eq  'password123'
-      
+      expect(BCrypt::Password.new(customer.password)).to eq 'password123'
     end
 
     it 'does not allow duplicate email addresses' do
@@ -27,7 +27,6 @@ describe Customer do
       expect(customer).to be_nil
     end
 
-
     it 'does not allow an empty email address' do
       expect(Customer.create(email: '', password: 'password123', name: 'Another Name')).to be_nil
     end
@@ -36,14 +35,12 @@ describe Customer do
       expect(Customer.create(email: 'test@example.com', password: '', name: 'Test Name')).to be_nil
     end
 
-
     it 'does not allow an empty name' do
       expect(Customer.create(email: 'test@example.com', password: 'password123', name: '')).to be_nil
     end
-
   end
 
-  describe ".authenticate" do
+  describe '.authenticate' do
     before(:each) do
       @customer = Customer.create(email: 'test@example.com', password: 'password123', name: 'Test User')
     end
@@ -61,7 +58,5 @@ describe Customer do
     it 'returns nil given an incorrect password' do
       expect(Customer.authenticate(email: 'test@example.com', password: 'wrongpassword')).to be_nil
     end
-
   end
-
 end

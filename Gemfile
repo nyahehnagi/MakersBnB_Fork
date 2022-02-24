@@ -4,15 +4,15 @@ source 'https://rubygems.org'
 
 ruby '3.0.2'
 
+gem 'bcrypt'
+gem 'dotenv'
 gem 'pg'
+gem 'rake'
+gem 'sequel'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-flash'
 gem 'webrick'
-gem 'sequel'
-gem 'rake'
-gem 'dotenv'
-gem 'bcrypt'
 
 group :test do
   gem 'capybara'

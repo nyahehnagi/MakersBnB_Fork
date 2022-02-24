@@ -1,6 +1,7 @@
-class SessionController < Sinatra::Base
+# frozen_string_literal: true
 
-  set :views, Proc.new { File.join(File.dirname(__FILE__), '..', "views") }
+class SessionController < Sinatra::Base
+  set :views, proc { File.join(File.dirname(__FILE__), '..', 'views') }
 
   register Sinatra::Flash
   enable :sessions
@@ -25,6 +26,4 @@ class SessionController < Sinatra::Base
     flash[:notice] = 'You have signed out.'
     redirect '/'
   end
-
-
 end

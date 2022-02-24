@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def register_new_user
   visit '/'
   click_button('Register')

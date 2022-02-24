@@ -25,7 +25,6 @@ SimpleCov.start
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 RSpec.configure do |config|
-
   config.before(:each) do
     Rake::Task['test_database_setup'].execute
   end
@@ -45,6 +44,4 @@ RSpec.configure do |config|
   # config.default_formatter = 'doc' if config.files_to_run.one?
 
   # config.profile_examples = 10
-
-
 end

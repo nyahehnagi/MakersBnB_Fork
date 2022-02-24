@@ -1,6 +1,7 @@
-class CustomerController < Sinatra::Base
+# frozen_string_literal: true
 
-  set :views, Proc.new { File.join(File.dirname(__FILE__), '..', "views") }
+class CustomerController < Sinatra::Base
+  set :views, proc { File.join(File.dirname(__FILE__), '..', 'views') }
 
   register Sinatra::Flash
   enable :sessions
@@ -8,12 +9,11 @@ class CustomerController < Sinatra::Base
   get '/customers/new' do
     erb :"customers/new"
   end
-  
-  post '/customers' do
 
+  post '/customers' do
     customer = Customer.create(
-      email: params['email'], 
-      password: params['password'], 
+      email: params['email'],
+      password: params['password'],
       name: params['name']
     )
 
@@ -25,5 +25,4 @@ class CustomerController < Sinatra::Base
       redirect('/customers/new')
     end
   end
-  
 end
