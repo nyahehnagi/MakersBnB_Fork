@@ -1,7 +1,11 @@
-Available Dates For <%=Space.find(space_id: session[:space_id]).name%>
+Available Dates For Hire
 <br>
-<%@available_dates.each do |date|%>
-  <%=BnbDate.find(date_id: date.date_id).date.strftime("%d/%m/%Y")%>
   <br>
-<%end%>
+  <% if @available_dates %>
+        <% @available_dates.each do |date| %>
+          <%=BnbDate.find(date_id: date.date_id).date.strftime("%d/%m/%Y")%>
+          <br>
+    <% end %>
+ <% end %>
+
 

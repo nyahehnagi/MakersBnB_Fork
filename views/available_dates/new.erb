@@ -1,12 +1,28 @@
-Add available dates
+<%if @space_id%>
+  <%=Space.find(space_id: @space_id).name%>
+  <br>
+  <br>
+  Manage available dates
+  <br>
+  <br>
+  <form action="/available_dates" method="post">
+    <label for="choose_date">Choose a date:</label>
+    <select name="date_select" id="date_select">
+      <%@bnb_dates.each do |date|%>
+      <option value=<%=date.date_id%>><%=date.date.strftime("%d/%m/%Y")%></option>
+      <%end%>
+    </select>
+    <br><br>
+    <input type="submit" value="Add Available Date">
+  </form>
 
-<form action="/available_dates" method="post">
-  <label for="choose_date">Choose a date:</label>
-  <select name="date_select" id="date_select">
-    <%@bnb_dates.each do |date|%>
-    <option value=<%=date.date_id%>><%=date.date.strftime("%d/%m/%Y")%></option>
-    <%end%>
-  </select>
-  <br><br>
-  <input type="submit" value="Add Available Date">
-</form>
+  <%= erb :"available_dates/index"%>
+<%else%>
+  Nothing to see here... there's no space man.
+<%end%>
+
+<br>
+<a id="back_to_spaces" href="/spaces"> Back to Spaces </a>
+
+
+

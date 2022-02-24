@@ -6,26 +6,22 @@ class AvailableDateController < Sinatra::Base
   register Sinatra::Flash
   enable :sessions
 
-  get '/available_dates' do
-
-  #  @available_dates = AvailableDate.find(space_id: session[:space_id])
-  @available_dates = AvailableDate.all
-    erb :"available_dates/index"
-  end
-
   get '/available_dates/new' do
+    @space_id  = params['space_id']
     @bnb_dates = BnbDate.all
-    session[:space_id] = params['space_id']
+    @available_dates = AvailableDate.find_by_id(space_id: @space_id)
+    session[:space_id] = @space_id
     erb :"available_dates/new"
-
   end
 
   post '/available_dates' do
-    p "Here"
     AvailableDate.create(
       space_id: session[:space_id], 
       date_id: params['date_select']
     )
-    redirect("/available_dates")
+    redirect("/available_dates/new?space_id=#{session[:space_id]}")
   end
 end
+
+# <% @available_dates.each do |date| %>
+#   <%= BnbDate.find(date_id: date.date_id).date.strftime("%d/%m/%Y") %>
