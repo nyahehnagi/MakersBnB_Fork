@@ -7,15 +7,25 @@ class AvailableDateController < Sinatra::Base
   enable :sessions
 
   get '/available_dates' do
+
+  #  @available_dates = AvailableDate.find(space_id: session[:space_id])
+  @available_dates = AvailableDate.all
     erb :"available_dates/index"
   end
 
   get '/available_dates/new' do
+    @bnb_dates = BnbDate.all
+    session[:space_id] = params['space_id']
     erb :"available_dates/new"
+
   end
 
   post '/available_dates' do
-    # add the date to the database via the model
+    p "Here"
+    AvailableDate.create(
+      space_id: session[:space_id], 
+      date_id: params['date_select']
+    )
     redirect("/available_dates")
   end
 end

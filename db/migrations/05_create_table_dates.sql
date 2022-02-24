@@ -1,4 +1,4 @@
-CREATE TABLE dates (
+CREATE TABLE bnb_dates (
 	date_id SERIAL PRIMARY KEY,
-  date DATE
+  bnbdate DATE
 );

@@ -7,11 +7,14 @@ require 'sinatra/flash'
 require './database_setup'
 require './lib/space'
 require './lib/customer'
+require './lib/bnb_date'
+require './lib/booking'
+require './lib/available_date'
 
 require_relative './controllers/customer_controller'
 require_relative './controllers/session_controller'
 require_relative './controllers/available_date_controller'
-require './lib/booking'
+
 
 # Maker House a Home
 class Mahah < Sinatra::Base

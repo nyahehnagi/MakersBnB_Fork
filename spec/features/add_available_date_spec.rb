@@ -1,7 +1,6 @@
 feature "add available date to the space" do
 
   scenario "can view the add available date page"  do
-    # seed the dates available in the drop down
     register_new_user
     visit '/available_dates/new'
     expect(page).to have_content("Add available dates")
@@ -9,8 +8,8 @@ feature "add available date to the space" do
   end
 
   scenario "add a date to the space"  do
-    # seed the dates available in the drop down
-    
+    # seed the dates available in thessio drop down
+    DB.run("INSERT INTO bnb_dates (date) VALUES ('02-23-2022')")
     
     register_new_user
     # seed a new space
