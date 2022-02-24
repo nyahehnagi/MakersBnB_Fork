@@ -11,11 +11,17 @@
     <% end %>
 </ol>
 
-<p>Choose the number from the list above for the property you would like:</p>
+<p>Choose the number from the list above for the property and the date you would like:</p>
 
 <form action='/bookings' method='post'>
 Property number:
 <input type='text' name='space_id'/>
+Date:
+<input type='date' id='start' name='booking_date'
+  value='2022-02-25'
+  min='2022-02-25' max='2025-02-25'>
+
+
 
 <input type='submit' value='Make booking'/>
 </form>

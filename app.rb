@@ -58,8 +58,9 @@ class Mahah < Sinatra::Base
   end
 
   post '/bookings' do
+    session[:booking_date] = params[:booking_date]
     session[:property] = Space.find(space_id: params[:space_id])
-    Booking.create(customer_id: session[:customer_id], space_id: session[:property].space_id, date_of_stay: '24/02/2022')
+    Booking.create(customer_id: session[:customer_id], space_id: session[:property].space_id, date_of_stay: params[:booking_date])
     redirect '/bookings'
   end
 
