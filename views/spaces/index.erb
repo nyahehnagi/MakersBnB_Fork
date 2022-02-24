@@ -10,10 +10,10 @@
 <ul>
 </br>
 <% @spaces.each do |space| %>
-  <p>  <%= space.name %>
-    <%= space.description %>
-    <%= space.price.to_f %>
-    <%= space.owner_customer_id %> </p>
+
+<p><%= space.space_id %>. <%= space.name %> </br>
+   <%= space.description %> </br>
+   £<%= space.price.to_f %></p>
   <% end %>
 </ul>
 <% if @customer %>

@@ -36,7 +36,7 @@ class Mahah < Sinatra::Base
 
   post '/spaces' do
     Space.create(name: params[:name], description: params[:description], price: params[:price],
-                 owner_customer_id: params[:owner_customer_id])
+                 owner_customer_id: session[:customer_id])
 
     redirect to '/spaces'
   end
