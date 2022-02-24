@@ -21,28 +21,25 @@ class Mahah < Sinatra::Base
 
   post '/spaces' do
     # p params
-    Space.create(name: params[:name], description: params[:description], price: params[:price], owner_customer_id: params[:owner_customer_id])
-    
-    redirect to "/spaces"
+    Space.create(name: params[:name], description: params[:description], price: params[:price],
+                 owner_customer_id: params[:owner_customer_id])
+
+    redirect to '/spaces'
   end
 
   get '/spaces' do
     @spaces = Space.all
-    
+
     erb :"spaces/index"
-    
   end
 
   get '/bookings/new' do
-
     erb :"bookings/new"
-
   end
 
   get '/bookings' do
     erb :"bookings/index"
   end
 
-  
   run! if app_file == $PROGRAM_NAME
 end
