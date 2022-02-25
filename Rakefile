@@ -9,4 +9,5 @@ task :test_database_setup do
 
   # Clear the database
   DB.run('TRUNCATE customers RESTART IDENTITY CASCADE')
+  DB.run('TRUNCATE bnb_dates RESTART IDENTITY CASCADE')
 end

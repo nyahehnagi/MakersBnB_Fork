@@ -14,6 +14,7 @@
 <p><%= space.space_id %>. <%= space.name %> </br>
    <%= space.description %> </br>
    £<%= space.price.to_f %></p>
+    <a id="manage_availablity" href="/available_dates/new?space_id=<%=space.space_id%>"> Manage Availability </a>
   <% end %>
 </ul>
 <% if @customer %>

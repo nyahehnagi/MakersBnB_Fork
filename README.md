@@ -81,12 +81,16 @@ Once within psql use the command line to complete the following steps (note, the
 02_create_table_space.sql
 03_create_table_bookings.sql
 04_alter_table_customers.sql
+05_create_table_dates.sql
+06_create_table_available_dates.sql
 
 \c makersbnb_test
 01_create_table_customer.sql
 02_create_table_space.sql
 03_create_table_bookings.sql
 04_alter_table_customers.sql
+05_create_table_dates.sql
+06_create_table_available_dates.sql
 ~~~~
 
 

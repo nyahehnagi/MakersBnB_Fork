@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 feature 'Make a booking' do
+
   scenario 'I want to view a space' do
     register_new_user
     create_new_space
@@ -40,8 +41,4 @@ feature 'View Bookings' do
     expect(page).to have_content "Date: 2022-02-25"
   end
   
-
-
-  
-
 end
