@@ -21,7 +21,6 @@ def create_new_space
   fill_in :name, with: "test"
   fill_in :description, with: "test description"
   fill_in :price, with: 24.55
-  fill_in :owner_customer_id, with: 1
   click_button 'New Space'
 end
 
