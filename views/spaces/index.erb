@@ -1,18 +1,14 @@
-
-
 <% if @customer %>
   <h1>Welcome, <%= @customer.name %></h1>
 <% end %>
-<ul>
-
+<div>
 <% @spaces.each do |space| %>
-
-<p><%= space.space_id %>. <%= space.name %> </br>
+<p> <%= space.name %> </br>
    <%= space.description %> </br>
    £<%= space.price.to_f %></p>
     <a id="manage_availablity" href="/available_dates/new?space_id=<%=space.space_id%>"> Manage Availability </a>
   <% end %>
-</ul>
+</div>
 <% if @customer %>
   <form action="/sessions/delete" method="post">
     <input type="submit" value="Sign out" />
