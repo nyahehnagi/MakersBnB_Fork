@@ -11,7 +11,6 @@ feature 'add available date to the space' do
     fill_in('name', with: 'Big House')
     fill_in('description', with: 'Really big house')
     fill_in('price', with: '10.5')
-    fill_in('owner_customer_id', with: '1')
     click_button('New Space')
 
     visit '/available_dates/new?space_id=1'
@@ -31,7 +30,6 @@ feature 'add available date to the space' do
     fill_in('name', with: 'Big House')
     fill_in('description', with: 'Really big house')
     fill_in('price', with: '10.5')
-    fill_in('owner_customer_id', with: '1')
     click_button('New Space')
 
     visit '/available_dates/new?space_id=1'
