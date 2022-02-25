@@ -1,0 +1,17 @@
+Bookings you have made:
+
+<% @trips.each do |trip| %>
+  <p>  Booking ID: <%= trip.booking_id %></p></br>
+  <p>  Customer ID: <%= trip.customer_id %></p></br>
+  <p>  Space ID: <%= trip.space_id %></p></br>
+  <p>  Date: <%= trip.date_of_stay %></p></br>
+<% end %>
+
+Bookings for your properties:
+
+<% @lettings.each do |letting| %>
+  <p>  Booking ID: <%= letting.booking_id %></p></br>
+  <p>  Customer ID: <%= letting.customer_id %></p></br>
+  <p>  Space ID: <%= letting.space_id %></p></br>
+  <p>  Date: <%= letting.date_of_stay %></p></br>
+<% end %>

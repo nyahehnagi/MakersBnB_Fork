@@ -4,6 +4,20 @@
   <link rel="stylesheet" href="/styles.css">
 <h1>Maker House a Home</h1>
 </head>
-
-You have booked <%= @owner %>'s <%= @property %> for 1 night!
-
+<h2>
+  <%= flash[:notice] %>
+</h2>
+<p>You have booked <%= session[:property].description %> for the <%= session[:booking_date] %></p>
+<form action='/spaces/new' method='get'>
+  <input type=submit value='Add a Space'/>
+</form>
+</br>
+</br>
+<form action='/bookings/new' method='get'>
+  <input type=submit value='Make another booking'/>
+</form>
+</br>
+</br>
+<form action='/mybookings' method='get'>
+  <input type=submit value='View Bookings'/>
+</form>

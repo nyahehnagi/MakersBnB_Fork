@@ -10,10 +10,10 @@
 <ul>
 </br>
 <% @spaces.each do |space| %>
-  <p>  <%= space.name %>
-    <%= space.description %>
-    <%= space.price.to_f %>
-    <%= space.owner_customer_id %> </p>
+
+<p><%= space.space_id %>. <%= space.name %> </br>
+   <%= space.description %> </br>
+   £<%= space.price.to_f %></p>
     <a id="manage_availablity" href="/available_dates/new?space_id=<%=space.space_id%>"> Manage Availability </a>
   <% end %>
 </ul>
@@ -23,8 +23,16 @@
   </form>
 <% end %>
 </br>
-</br>
 <form action='/spaces/new' method='get'>
   <input type=submit value='Add a Space'/>
 </form>
+</br>
+<form action='/bookings/new' method='get'>
+  <input type=submit value='Make a Booking'/>
+</form>
+</br>
+<form action='/mybookings' method='get'>
+  <input type=submit value='View Bookings'/>
+</form>
+
 </body>

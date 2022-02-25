@@ -39,10 +39,15 @@ class Mahah < Sinatra::Base
   end
 
   post '/spaces' do
-    Space.create(name: params[:name], description: params[:description], price: params[:price],
-                 owner_customer_id: params[:owner_customer_id])
+    if session[:customer_id] != nil
+      Space.create(name: params[:name], description: params[:description], price: params[:price],
+      owner_customer_id: session[:customer_id])
+      redirect to '/spaces'
+    else
+      flash[:notice] = "You are not logged on, please logon or register to add a space"
+      redirect to '/'
+    end
 
-    redirect to '/spaces'
   end
 
   get '/spaces' do
@@ -57,14 +62,41 @@ class Mahah < Sinatra::Base
     erb :"bookings/new"
   end
 
-  # get '/bookings' do
-  #   erb :"bookings/index"
-  # end
+  get '/bookings' do
+    erb :"bookings/index"
+  end
 
   post '/bookings' do
-    @owner = params[:owner]
-    @property = params[:property]
-    erb :"bookings/index"
+    if session[:customer_id] != nil
+      session[:booking_date] = params[:booking_date]
+      session[:property] = Space.find(space_id: params[:space_id])
+      Booking.create(customer_id: session[:customer_id], space_id: session[:property].space_id, date_of_stay: params[:booking_date])
+      Space.filter(space_id: params[:space_id]).update(hire_customer_id: session[:customer_id])
+      redirect '/bookings'
+    else
+      flash[:notice] = "You are not logged on, please logon or register to make a booking"
+      redirect to '/'
+    end
+  end
+
+  get '/mybookings' do
+    @trips = Booking.where(customer_id: session[:customer_id])
+    @properties = Space.where(owner_customer_id: session[:customer_id])
+    p "properties count = #{@properties.count}"
+    if @properties.count != "0"
+      @properties.each do |property|
+        @lettings = Booking.where(space_id: property.space_id)
+      end
+    end
+    if @trips.count == 0 && @properties.count == 0
+      flash[:notice] = "You have no bookings"
+      redirect to '/nobookings'
+    end
+    erb :"mybookings/index"
+  end
+
+  get '/nobookings' do
+    erb :"nobookings/index"
   end
 
   run! if app_file == $PROGRAM_NAME
