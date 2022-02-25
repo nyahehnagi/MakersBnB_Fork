@@ -15,7 +15,6 @@ require_relative './controllers/customer_controller'
 require_relative './controllers/session_controller'
 require_relative './controllers/available_date_controller'
 
-
 # Maker House a Home
 class Mahah < Sinatra::Base
   use CustomerController

@@ -7,12 +7,9 @@ class AvailableDateController < Sinatra::Base
   enable :sessions
 
   get '/available_dates/new' do
-    @space_id  = params['space_id']
-   
+    @space_id = params['space_id']
     if @space_id
-      #@bnb_dates = BnbDate.all
       @bnb_dates = BnbDate.usable_dates_by_space(space_id: @space_id)
-      p @bnb_dates
       @available_dates = AvailableDate.find_by_id(space_id: @space_id)
       session[:space_id] = @space_id
     end
@@ -21,12 +18,9 @@ class AvailableDateController < Sinatra::Base
 
   post '/available_dates' do
     AvailableDate.create(
-      space_id: session[:space_id], 
+      space_id: session[:space_id],
       date_id: params['date_select']
     )
     redirect("/available_dates/new?space_id=#{session[:space_id]}")
   end
 end
-
-# <% @available_dates.each do |date| %>
-#   <%= BnbDate.find(date_id: date.date_id).date.strftime("%d/%m/%Y") %>
