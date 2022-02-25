@@ -3,7 +3,7 @@
 feature 'add available date to the space' do
   scenario 'add a date to the space' do
     # seed the dates available in thessio drop down
-    DB.run("INSERT INTO bnb_dates (date) VALUES ('02-23-2022')")
+    DB.run("INSERT INTO bnb_dates (bnbdate) VALUES ('02-23-2022')")
 
     register_new_user
     # seed a new space

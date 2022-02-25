@@ -9,7 +9,7 @@
     <label for="choose_date">Choose a date:</label>
     <select name="date_select" id="date_select">
       <%@bnb_dates.each do |date|%>
-      <option value=<%=date.date_id%>><%=date.date.strftime("%d/%m/%Y")%></option>
+      <option value=<%=date.date_id%>><%=date.bnbdate.strftime("%d/%m/%Y")%></option>
       <%end%>
     </select>
     <br><br>

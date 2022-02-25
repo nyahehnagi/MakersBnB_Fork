@@ -4,7 +4,7 @@ require_relative '../lib/available_date'
 
 describe AvailableDate do
   it 'creates an Available date' do
-    DB.run("INSERT INTO bnb_dates (date) VALUES ('02-23-2022')")
+    DB.run("INSERT INTO bnb_dates (bnbdate) VALUES ('02-23-2022')")
     Customer.create(email: 'test@example.com', password: 'password123', name: 'Test User')
     Space.create(name: 'test', description: 'test', price: 10, owner_customer_id: 1)
 
