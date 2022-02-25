@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<head>
-  <link rel="stylesheet" href="/styles.css">
-<h1>Maker House a Home</h1>
-</head>
-<body>
+
+
 <% if @customer %>
   <h1>Welcome, <%= @customer.name %></h1>
 <% end %>
 <ul>
-</br>
+
 <% @spaces.each do |space| %>
 
 <p><%= space.space_id %>. <%= space.name %> </br>
@@ -34,5 +30,3 @@
 <form action='/mybookings' method='get'>
   <input type=submit value='View Bookings'/>
 </form>
-
-</body>
