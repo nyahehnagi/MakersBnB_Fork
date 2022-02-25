@@ -8,9 +8,14 @@ class AvailableDateController < Sinatra::Base
 
   get '/available_dates/new' do
     @space_id  = params['space_id']
-    @bnb_dates = BnbDate.all
-    @available_dates = AvailableDate.find_by_id(space_id: @space_id)
-    session[:space_id] = @space_id
+   
+    if @space_id
+      #@bnb_dates = BnbDate.all
+      @bnb_dates = BnbDate.usable_dates_by_space(space_id: @space_id)
+      p @bnb_dates
+      @available_dates = AvailableDate.find_by_id(space_id: @space_id)
+      session[:space_id] = @space_id
+    end
     erb :"available_dates/new"
   end
 
