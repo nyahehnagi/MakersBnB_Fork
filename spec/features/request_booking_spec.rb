@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-# View a booking
-# Make a booking
-
 feature 'View a booking' do
   scenario 'I want to view a space' do
     visit('/bookings/new')
